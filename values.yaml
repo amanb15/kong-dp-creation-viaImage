@@ -1,22 +1,22 @@
 image:
   repository: "asia-south1-docker.pkg.dev/kong-gke-493913/kong-repo/kong-custom"
-  tag: "latest"
+  tag: "3.9"
 
 env:
-role: "data_plane"
-database: "off"
+  role: "data_plane"
+  database: "off"
 
-cluster_mtls: "pki"
+  cluster_mtls: "pki"
 
-cluster_control_plane: "fbb8a2ee45.us.tp.konghq.com:8005"
-cluster_telemetry_endpoint: "fbb8a2ee45.us.tp.konghq.com:8006"
-cluster_server_name: "fbb8a2ee45.us.tp.konghq.com"
+  cluster_control_plane: "fbb8a2ee45.us.tp.konghq.com:8005"
+  cluster_telemetry_endpoint: "fbb8a2ee45.us.tp.konghq.com:8006"
+  cluster_server_name: "fbb8a2ee45.us.tp.konghq.com"
 
-cluster_cert: "/etc/secrets/konnect-client-tls/tls.crt"
-cluster_cert_key: "/etc/secrets/konnect-client-tls/tls.key"
+  cluster_cert: "/etc/secrets/konnect-client-tls/tls.crt"
+  cluster_cert_key: "/etc/secrets/konnect-client-tls/tls.key"
 
-lua_ssl_trusted_certificate: "system"
-tls_certificate_verify: "off"
+  lua_ssl_trusted_certificate: "system"
+  tls_certificate_verify: "off"
 
 proxy:
   enabled: true
