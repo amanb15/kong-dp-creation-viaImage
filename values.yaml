@@ -8,8 +8,8 @@ env:
   database: "off"
 
   cluster_mtls: "pki"
-  cluster_control_plane: "fbb8a2ee45.us.tp.konghq.com:8005"
-  cluster_telemetry_endpoint: "fbb8a2ee45.us.tp.konghq.com:8006"
+  cluster_control_plane: "fbb8a2ee45.us.tp.konghq.com:443"
+  cluster_telemetry_endpoint: "fbb8a2ee45.us.tp.konghq.com:443"
   cluster_server_name: "fbb8a2ee45.us.tp.konghq.com"
 
   cluster_cert: "/etc/secrets/konnect-client-tls/tls.crt"
