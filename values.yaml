@@ -1,43 +1,25 @@
-controller:
-ingressController:
-image:
-tag: "3.5"
-env:
-feature_gates: "FillIDs=true"
-
-ingressClass: "kong"
-
-ingressClassResource:
-name: "kong"
-enabled: true
-default: true
-controllerValue: "konghq.com/ingress-controller"
-
-konnect:
-enabled: true
-controlPlaneID: "b8308531-97a1-493a-8eed-f982a3017893"
-tlsClientCertSecretName: "konnect-client-tls"
-apiHostname: "us.kic.api.konghq.com"
-
 gateway:
 image:
 repository: "asia-south1-docker.pkg.dev/kong-gke-493913/kong-repo/kong-custom"
 tag: "latest"
 
 env:
-konnect_mode: "on"
-vitals: "off"
+role: "data_plane"
+database: "off"
 
+```
 cluster_mtls: "pki"
 
-cluster_telemetry_endpoint: "fbb8a2ee45.us.tp.konghq.com:443"
-cluster_telemetry_server_name: "fbb8a2ee45.us.tp.konghq.com"
+cluster_control_plane: "fbb8a2ee45.us.tp.konghq.com:8005"
+cluster_telemetry_endpoint: "fbb8a2ee45.us.tp.konghq.com:8006"
+cluster_server_name: "fbb8a2ee45.us.tp.konghq.com"
 
 cluster_cert: "/etc/secrets/konnect-client-tls/tls.crt"
 cluster_cert_key: "/etc/secrets/konnect-client-tls/tls.key"
 
 lua_ssl_trusted_certificate: "system"
 tls_certificate_verify: "off"
+```
 
 secretVolumes:
 - konnect-client-tls
