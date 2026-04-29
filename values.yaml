@@ -26,3 +26,6 @@ proxy:
 
 manager:
   enabled: false
+
+ingressController:
+  enabled: false  
