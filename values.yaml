@@ -5,6 +5,14 @@ tag: "3.5"
 env:
 feature_gates: "FillIDs=true"
 
+ingressClass: "kong"
+
+ingressClassResource:
+name: "kong"
+enabled: true
+default: true
+controllerValue: "konghq.com/ingress-controller"
+
 konnect:
 enabled: true
 controlPlaneID: "b8308531-97a1-493a-8eed-f982a3017893"
