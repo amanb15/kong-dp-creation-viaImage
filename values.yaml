@@ -27,3 +27,6 @@ secretVolumes:
 
 manager:
   enabled: false
+
+ingressController:
+  enabled: false  
