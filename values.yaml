@@ -19,12 +19,11 @@ lua_ssl_trusted_certificate: "system"
 tls_certificate_verify: "off"
 
 proxy:
-enabled: true
-type: LoadBalancer
+  enabled: true
+  type: LoadBalancer
 
 secretVolumes:
-
-konnect-client-tls
+  - konnect-client-tls
 
 manager:
-enabled: false
+  enabled: false
