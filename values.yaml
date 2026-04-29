@@ -9,9 +9,7 @@ env:
 
   cluster_mtls: "pki"
   cluster_control_plane: "00156f2e1e.in.cp.konghq.com:443"
-  cluster_server_name: "00156f2e1e.in.cp.konghq.com"
   cluster_telemetry_endpoint: "00156f2e1e.in.tp.konghq.com:443"
-  cluster_telemetry_server_name: "00156f2e1e.in.tp.konghq.com"
 
   cluster_cert: "/etc/secrets/konnect-client-tls/tls.crt"
   cluster_cert_key: "/etc/secrets/konnect-client-tls/tls.key"
