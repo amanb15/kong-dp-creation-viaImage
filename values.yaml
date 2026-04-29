@@ -1,0 +1,17 @@
+image:
+  repository: asia-south1-docker.pkg.dev/kong-gke-493913/kong-repo/kong-custom
+  tag: latest
+
+env:
+  role: data_plane
+  database: "off"
+
+  cluster_control_plane: "<CP-ENDPOINT>:8005"
+  cluster_server_name: "<CP-ENDPOINT>"
+  cluster_telemetry_endpoint: "<CP-ENDPOINT>:8006"
+
+secretVolumes:
+  - kong-cluster-cert
+
+proxy:
+  type: LoadBalancer
