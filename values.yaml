@@ -7,7 +7,6 @@ env:
 role: "data_plane"
 database: "off"
 
-```
 cluster_mtls: "pki"
 
 cluster_control_plane: "fbb8a2ee45.us.tp.konghq.com:8005"
@@ -19,7 +18,6 @@ cluster_cert_key: "/etc/secrets/konnect-client-tls/tls.key"
 
 lua_ssl_trusted_certificate: "system"
 tls_certificate_verify: "off"
-```
 
 secretVolumes:
 - konnect-client-tls
