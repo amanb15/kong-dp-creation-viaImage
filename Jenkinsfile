@@ -22,6 +22,7 @@ stages {
                 sh '''
                 gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
                 gcloud config set project $PROJECT_ID
+                gcloud auth list
                 '''
             }
         }
