@@ -24,7 +24,7 @@ type: LoadBalancer
 
 secretVolumes:
 
-* konnect-client-tls
+konnect-client-tls
 
 manager:
 enabled: false
