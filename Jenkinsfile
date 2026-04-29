@@ -1,7 +1,6 @@
 pipeline {
 agent any
 
-```
 environment {
     PROJECT_ID = "kong-gke-493913"
     REGION = "us-central1"
@@ -70,6 +69,5 @@ stages {
         }
     }
 }
-```
 
 }
