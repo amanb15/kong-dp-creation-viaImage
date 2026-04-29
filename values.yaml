@@ -1,6 +1,6 @@
 image:
   repository: "asia-south1-docker.pkg.dev/kong-gke-493913/kong-repo/kong-custom"
-  tag: "test-amd64"
+  tag: "3.9-amd64"
   pullPolicy: Always
 
 env:
