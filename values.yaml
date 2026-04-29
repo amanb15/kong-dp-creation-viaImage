@@ -1,6 +1,7 @@
 image:
   repository: "asia-south1-docker.pkg.dev/kong-gke-493913/kong-repo/kong-custom"
   tag: "3.9"
+  pullPolicy: Always
 
 env:
   role: "data_plane"
