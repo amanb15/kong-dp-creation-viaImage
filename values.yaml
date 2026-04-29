@@ -1,8 +1,7 @@
-gateway:
-  image:
-    repository: "asia-south1-docker.pkg.dev/kong-gke-493913/kong-repo/kong-custom"
-    tag: "3.9-amd64"
-    pullPolicy: Always
+image:
+  repository: "asia-south1-docker.pkg.dev/kong-gke-493913/kong-repo/kong-custom"
+  tag: "3.9-amd64"
+  pullPolicy: Always
 
 env:
   role: "data_plane"
@@ -27,7 +26,4 @@ proxy:
   type: LoadBalancer
 
 manager:
-  enabled: false
-
-ingressController:
   enabled: false
