@@ -4,21 +4,20 @@ agent any
 ```
 environment {
     PROJECT_ID = "kong-gke-493913"
-    REGION = "asia-south1"
-    CLUSTER_NAME = "kong-cluster"
-    RELEASE_NAME = "kong-dp"
-    NAMESPACE = "default"
+    REGION = "us-central1"
+    CLUSTER_NAME = "kong-cluster1"
+    NAMESPACE = "kong"
 }
 
 stages {
 
-    stage('Checkout Repo') {
+    stage('Checkout Code') {
         steps {
             checkout scm
         }
     }
 
-    stage('Authenticate to GCP') {
+    stage('Authenticate GCP') {
         steps {
             withCredentials([file(credentialsId: 'gcp-key', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
                 sh '''
@@ -29,7 +28,7 @@ stages {
         }
     }
 
-    stage('Connect to GKE Cluster') {
+    stage('Connect to GKE') {
         steps {
             sh '''
             gcloud container clusters get-credentials $CLUSTER_NAME --region $REGION
@@ -37,7 +36,7 @@ stages {
         }
     }
 
-    stage('Install Helm (if not present)') {
+    stage('Install Helm (if not installed)') {
         steps {
             sh '''
             if ! command -v helm &> /dev/null
@@ -48,20 +47,14 @@ stages {
         }
     }
 
-    stage('Add Kong Helm Repo') {
+    stage('Deploy Kong via Helm') {
         steps {
             sh '''
             helm repo add kong https://charts.konghq.com
             helm repo update
-            '''
-        }
-    }
 
-    stage('Deploy Kong DP via Helm') {
-        steps {
-            sh '''
-            helm upgrade --install $RELEASE_NAME kong/kong \
-              --namespace $NAMESPACE \
+            helm upgrade --install kong kong/ingress \
+              -n $NAMESPACE \
               --create-namespace \
               -f values.yaml
             '''
