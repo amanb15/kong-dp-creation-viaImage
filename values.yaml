@@ -1,14 +1,14 @@
-image:
-  repository: "asia-south1-docker.pkg.dev/kong-gke-493913/kong-repo/kong-custom"
-  tag: "3.9-amd64"
-  pullPolicy: Always
+gateway:
+  image:
+    repository: "asia-south1-docker.pkg.dev/kong-gke-493913/kong-repo/kong-custom"
+    tag: "3.9-amd64"
+    pullPolicy: Always
 
 env:
   role: "data_plane"
   database: "off"
 
   cluster_mtls: "pki"
-
   cluster_control_plane: "fbb8a2ee45.us.tp.konghq.com:8005"
   cluster_telemetry_endpoint: "fbb8a2ee45.us.tp.konghq.com:8006"
   cluster_server_name: "fbb8a2ee45.us.tp.konghq.com"
@@ -19,15 +19,15 @@ env:
   lua_ssl_trusted_certificate: "system"
   tls_certificate_verify: "off"
 
+secretVolumes:
+  - konnect-client-tls
+
 proxy:
   enabled: true
   type: LoadBalancer
-
-secretVolumes:
-  - konnect-client-tls
 
 manager:
   enabled: false
 
 ingressController:
-  enabled: false  
+  enabled: false
