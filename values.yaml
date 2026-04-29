@@ -1,17 +1,43 @@
+controller:
+ingressController:
 image:
-  repository: asia-south1-docker.pkg.dev/kong-gke-493913/kong-repo/kong-custom
-  tag: latest
+tag: "3.5"
+env:
+feature_gates: "FillIDs=true"
+
+konnect:
+enabled: true
+controlPlaneID: "b8308531-97a1-493a-8eed-f982a3017893"
+tlsClientCertSecretName: konnect-client-tls
+apiHostname: "us.kic.api.konghq.com"
+
+gateway:
+image:
+repository: asia-south1-docker.pkg.dev/kong-gke-493913/kong-repo/kong-custom
+tag: "latest"
 
 env:
-  role: data_plane
-  database: "off"
+konnect_mode: "on"
+vitals: "off"
 
-  cluster_control_plane: "<CP-ENDPOINT>:8005"
-  cluster_server_name: "<CP-ENDPOINT>"
-  cluster_telemetry_endpoint: "<CP-ENDPOINT>:8006"
+```
+cluster_mtls: "pki"
+
+cluster_telemetry_endpoint: "fbb8a2ee45.us.tp.konghq.com:443"
+cluster_telemetry_server_name: "fbb8a2ee45.us.tp.konghq.com"
+
+cluster_cert: /etc/secrets/konnect-client-tls/tls.crt
+cluster_cert_key: /etc/secrets/konnect-client-tls/tls.key
+
+lua_ssl_trusted_certificate: "system"
+tls_certificate_verify: "off"
+```
 
 secretVolumes:
-  - kong-cluster-cert
+- konnect-client-tls
 
 proxy:
-  type: LoadBalancer
+type: LoadBalancer
+
+manager:
+enabled: false
