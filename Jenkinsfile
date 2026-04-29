@@ -30,7 +30,9 @@ stages {
     stage('Connect to GKE') {
         steps {
             sh '''
-            gcloud container clusters get-credentials $CLUSTER_NAME --region $REGION
+            gcloud container clusters get-credentials $CLUSTER_NAME \
+              --region $REGION \
+              --project $PROJECT_ID
             '''
         }
     }
