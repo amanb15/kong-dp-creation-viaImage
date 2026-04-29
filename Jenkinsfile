@@ -45,7 +45,7 @@ stages {
             helm repo add kong https://charts.konghq.com
             helm repo update
 
-            helm upgrade --install kong kong/ingress \
+            helm upgrade --install kong kong/kong \
               -n $NAMESPACE \
               --create-namespace \
               -f values.yaml
