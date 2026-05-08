@@ -2,7 +2,7 @@ pipeline {
 agent any
 
 environment {
-    PROJECT_ID = "kong-gke-493913"
+    PROJECT_ID = "kong-gke-495314"
     REGION = "us-central1"
     CLUSTER_NAME = "kong-cluster1"
     NAMESPACE = "kong"
