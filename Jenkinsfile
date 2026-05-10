@@ -33,7 +33,7 @@ stages {
         steps {
             sh '''
             gcloud container clusters get-credentials $CLUSTER_NAME \
-              --region $REGION \
+              --zone $ZONE \
               --project $PROJECT_ID
             '''
         }
