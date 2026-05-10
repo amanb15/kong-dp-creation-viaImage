@@ -4,6 +4,7 @@ agent any
 environment {
     PROJECT_ID = "kong-gke-495314"
     REGION = "us-central1"
+    ZONE = "us-central1-a"
     CLUSTER_NAME = "kong-cluster1"
     NAMESPACE = "kong"
 }
